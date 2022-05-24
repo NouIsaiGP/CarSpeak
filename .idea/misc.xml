@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/layout/fragment_botones.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/layout/fragment_principal.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/layout/menu_botones.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/layout/menu_principal.xml" value="0.33" />
       </map>
     </option>
   </component>
