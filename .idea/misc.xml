@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/drawable/circle.xml" value="0.1" />
+        <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/drawable/circle2.xml" value="0.1" />
+        <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/drawable/round_button_blue.xml" value="0.1" />
         <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/layout/fragment_botones.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/layout/fragment_principal.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/layout/fragment_principal.xml" value="0.33" />
         <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/layout/menu_botones.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/layout/menu_principal.xml" value="0.33" />
+        <entry key="..\:/Users/noe_7/AndroidStudioProjects/CarSpeak/app/src/main/res/mipmap-anydpi-v26/circle.xml" value="0.1605" />
       </map>
     </option>
   </component>
