@@ -1,72 +1,116 @@
 package com.example.carspeak
 
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_principal.*
+import pl.droidsonroids.gif.AnimationListener
+import pl.droidsonroids.gif.GifDrawable
+import java.util.*
 
 
-class PrincipalFragment : Fragment() {
+class PrincipalFragment : Fragment(), AnimationListener {
 
     private lateinit var viewOfLayout: View
-    private var handlerAnimation = Handler()
-    private var statusAnimation = false
-    private lateinit var button: Button
+    private lateinit var gifDrawable: GifDrawable
+    private var timer: Timer = Timer()
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
 
         viewOfLayout = inflater!!.inflate(R.layout.fragment_principal, container, false)
 
-        button = viewOfLayout.findViewById(R.id.button)
-
-        button.setOnClickListener {
-            if (statusAnimation){
-                stopPulse()
-                button.text = "Iniciar"
-            }
-            else {
-                startPulse()
-                button.text = "Detener"
-            }
-            statusAnimation = !statusAnimation
-        }
         return viewOfLayout
     }
 
-    private fun startPulse() {
-        runnable.run()
+    private fun resetAnimation() {
+        gifDrawable.stop()
+        gifDrawable.seekToFrameAndGet(5)
+        inivsibleTextDots()
+        timer.purge()
     }
 
-    private fun stopPulse() {
-        Log.e("arrrweee", " parar")
-        handlerAnimation.removeCallbacks(runnable)
+    private fun letterAnimation() {
+        timer = Timer()
+
+        val showDot1 = object : TimerTask() {
+            override fun run() {
+                txtPunto1.visibility = View.VISIBLE
+            }
+        }
+        val showDot2 = object : TimerTask() {
+            override fun run() {
+                txtPunto2.visibility = View.VISIBLE
+            }
+        }
+        val showDot3 = object : TimerTask() {
+            override fun run() {
+                txtPunto3.visibility = View.VISIBLE
+            }
+        }
+        val resetDots = object : TimerTask() {
+            override fun run() {
+                inivsibleTextDots()
+            }
+        }
+        timer.schedule(showDot1, 1000, 6000)
+        timer.schedule(showDot2, 2000, 6000)
+        timer.schedule(showDot3, 3000, 6000)
+        timer.schedule(resetDots, 5000, 6000)
+        /*for (i in 1..5) {
+            Handler(Looper.getMainLooper()).postDelayed({
+                txtPunto1.visibility = View.VISIBLE
+            }, 1000)
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                txtPunto2.visibility = View.VISIBLE
+            }, 2000)
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                txtPunto3.visibility = View.VISIBLE
+            }, 3000)
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                txtPunto1.visibility = View.INVISIBLE
+                txtPunto2.visibility = View.INVISIBLE
+                txtPunto3.visibility = View.INVISIBLE
+            }, 4000)
+        }*/
     }
 
-    private var runnable = object : Runnable {
-        override fun run() {
+    private fun inivsibleTextDots(){
+        txtPunto1.visibility = View.INVISIBLE
+        txtPunto2.visibility = View.INVISIBLE
+        txtPunto3.visibility = View.INVISIBLE
+    }
 
-            imgAnimation1.animate().scaleX(4f).scaleY(4f).alpha(0f).setDuration(700)
-                .withEndAction {
-                    imgAnimation1.scaleX = 1f
-                    imgAnimation1.scaleY = 1f
-                    imgAnimation1.alpha = 1f
-                }
+    private fun toggleAnimation() = when {
+        gifDrawable.isPlaying -> gifDrawable.stop().also {
+            txtEscuchando.visibility = View.INVISIBLE
+            timer.cancel()
+            resetAnimation() }
+        else -> gifDrawable.start().also {
+            txtEscuchando.visibility = View.VISIBLE
+            letterAnimation()}
+    }
 
-            imgAnimation2.animate().scaleX(4f).scaleY(4f).alpha(0f).setDuration(400)
-                .withEndAction {
-                    imgAnimation2.scaleX = 1f
-                    imgAnimation2.scaleY = 1f
-                    imgAnimation2.alpha = 1f
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-            handlerAnimation.postDelayed(this, 1500)
+        btnEscuchar.setOnClickListener { toggleAnimation() }
+        gifDrawable = btnGif.drawable as GifDrawable
+
+        resetAnimation()
+        gifDrawable.addAnimationListener(this)
+    }
+
+    override fun onAnimationCompleted(loopNumber: Int) {
+        val view = view
+        if (view != null) {
         }
     }
 

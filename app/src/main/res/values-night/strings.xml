@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="animation_loop_completed">Animacion terminada</string>
+    <string name="punto">.</string>
+</resources>

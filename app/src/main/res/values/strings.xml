@@ -3,4 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="iniciar">Iniciar</string>
     <string name="detener">Detener</string>
+    <string name="animation_loop_completed">Animacion terminada</string>
+    <string name="punto">.</string>
+    <string name="escuchando">Escuchando</string>
 </resources>
