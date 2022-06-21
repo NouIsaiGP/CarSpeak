@@ -4,10 +4,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.example.carspeak.util.BluetoothJhr
 import com.example.carspeak.util.ViewPagerAdapter
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var blue :BluetoothJhr
+    var initConexion = false
+    var offHilo = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +27,8 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = ViewPagerAdapter(fragments,this)
         viewPager.adapter = adapter
+
+
     }
 
 }

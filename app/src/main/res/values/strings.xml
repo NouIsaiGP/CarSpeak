@@ -6,4 +6,5 @@
     <string name="animation_loop_completed">Animacion terminada</string>
     <string name="punto">.</string>
     <string name="escuchando">Escuchando</string>
+    <string name="dispositivos_vinculados">Dispositivos Vinculados</string>
 </resources>
